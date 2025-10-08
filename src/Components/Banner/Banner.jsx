@@ -3,7 +3,7 @@ import PlayStore from "../../assets/img/Group(1).png";
 import AppStore from "../../assets/img/Group.png";
 const Banner = () => {
   return (
-    <div className="mt-20">
+    <div className="pt-20">
       <div className="w-full md:w-[597px] mx-auto">
         <h1 className="text-[64px] text-center text-[#001931] font-bold">
           We Build{" "}
