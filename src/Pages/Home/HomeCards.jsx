@@ -12,7 +12,7 @@ const HomeCards = ({ appData }) => {
           Explore All Trending Apps on the Market developed by us
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-10">
         {appsData.map((appData) => (
           <HomeCard appData={appData} key={appData.id}></HomeCard>
         ))}

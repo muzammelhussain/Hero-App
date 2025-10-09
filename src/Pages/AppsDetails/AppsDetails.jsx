@@ -25,13 +25,13 @@ const AppsDetails = () => {
   } = singleData;
 
   return (
-    <div>
+    <div className="w-full mx-auto">
       <div className="flex flex-col md:flex-row gap-5 ml-5 border-b-2 border-b-gray-200 w-full mx-auto">
         <div className="mt-5 mb-4 ">
           <img className="h-[250px] w-[250px]" src={image} alt="" />
         </div>
         <div>
-          <div className="border-b-2 border-b-gray-200 ">
+          <div className="border-b-2 border-b-gray-200 flex flex-col w-full">
             <h1 className="mt-4 text-2xl font-bold text-[#001931]">{title}</h1>
             <p className="text-[#627382] my-4">Developed by: {companyName}</p>
           </div>
