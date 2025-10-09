@@ -3,8 +3,8 @@ import Hero from "../../assets/img/hero.png";
 const UserReview = () => {
   return (
     <div>
-      <div className="mx-auto text-center">
-        <img src={Hero} alt="" />
+      <div>
+        <img className="max-w[500px] mx-auto " src={Hero} alt="" />
       </div>
       <div className="text-white p-16 bg-gradient-to-b from-[#632EE3] to-[#9F62F2]">
         <div className="w-2/3 mx-auto">

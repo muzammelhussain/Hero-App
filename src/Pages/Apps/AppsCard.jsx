@@ -7,15 +7,15 @@ const AppsCard = ({ appData }) => {
   const { image, downloads, ratingAvg, title, id } = appData;
   return (
     <Link to={`/appsDetails/${id}`}>
-      <div>
-        <div className="card bg-base-100 w-72 shadow-sm flex flex-col h-full">
-          <figure className="px-5 pt-5 flex-grow">
+      <div className="flex flex-col h-full">
+        <div className="card bg-base-100 w-72 shadow-sm flex-grow hover:scale-105">
+          <figure className="px-5 pt-5 ">
             <img src={image} alt="Shoes" className="rounded-xl  w-[320px]" />
           </figure>
           <div className="card-body items-center ">
             <h2 className="card-title">{title}</h2>
           </div>
-          <div className="flex justify-between mx-4 mb-3">
+          <div className="flex justify-between mx-4 mb-3 ">
             <div className="text-[#00D390] bg-[#F1F5E8] py-1 px-1.5 flex rounded-lg gap-2">
               <img className="w-5 h-5" src={Download} alt="" />
               <h1>{downloads}</h1>

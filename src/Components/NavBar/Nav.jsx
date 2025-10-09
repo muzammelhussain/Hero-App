@@ -1,25 +1,53 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../../assets/img/logo.png";
 import Git from "../../assets/img/Vector.png";
 
 const Nav = () => {
   const links = (
     <>
-      <Link to="/">
-        <li>Home</li>
-      </Link>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#632EE3] font-semibold border-2 border-[#632EE3]"
+              : "text-gray-600 hover:text-[#632EE3]"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
 
-      <Link to="/apps">
-        <li>Apps</li>
-      </Link>
-      <Link to="/installation">
-        <li>Installation</li>
-      </Link>
+      <li>
+        <NavLink
+          to="/apps"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#632EE3] font-semibold border-2 border-[#632EE3]"
+              : "text-gray-600 hover:text-[#632EE3]"
+          }
+        >
+          Apps
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/installation"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#632EE3] font-semibold border-2 border-[#632EE3]"
+              : "text-gray-600 hover:text-[#632EE3]"
+          }
+        >
+          Installation
+        </NavLink>
+      </li>
     </>
   );
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full mx-auto">
       <div className="w-full navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
