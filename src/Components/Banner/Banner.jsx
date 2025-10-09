@@ -22,10 +22,12 @@ const Banner = () => {
       </div>
       <div className="w-full md:w-2xl text-center mx-auto space-x-5 my-8">
         <button className="btn bg-white text-black border-[#e5e5e5]">
-          <img className="w-5" src={AppStore} alt="" /> Google Play
+          <img className="w-5" src={AppStore} alt="" />{" "}
+          <a href="https://play.google.com/store/apps?hl=en">Google Play</a>
         </button>
         <button className="btn bg-white text-black border-[#e5e5e5]">
-          <img className="w-5" src={PlayStore} alt="" /> App Store
+          <img className="w-5" src={PlayStore} alt="" />{" "}
+          <a href="https://www.apple.com/app-store/">App Store</a>
         </button>
       </div>
     </div>

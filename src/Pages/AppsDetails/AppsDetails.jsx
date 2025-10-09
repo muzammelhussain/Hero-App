@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Download from "../../assets/img/icon-downloads.png";
 import Rating from "../../assets/img/icon-ratings.png";
 import Review from "../../assets/img/icon-review.png";
 import Ratings from "./Ratings";
+import Description from "./Description";
+import { toast } from "react-toastify";
+import { addToInstalledDB, getInstallApp } from "../../utility/addToDB";
 
 const AppsDetails = () => {
+  const [install, setInstall] = useState(false);
+
+  const installHandler = () => {
+    setInstall(true);
+    addToInstalledDB(id);
+    if (!install) {
+      setInstall(true);
+      toast.success("✅ App Installed Successfully!");
+    } else {
+      toast.info("App is already installed.");
+    }
+  };
+
+  const localData = getInstallApp();
+  console.log(localData);
+
   const { id } = useParams();
   const appId = parseInt(id);
   const data = useLoaderData();
@@ -59,13 +78,20 @@ const AppsDetails = () => {
                 </h1>
               </div>
             </div>
-            <button className="btn mt-3 bg-[#00D390] text-white">
-              Install Now ({size} MB)
+            <button
+              onClick={installHandler}
+              className={`btn mt-3 text-white ${
+                install ? "bg-gray-400 cursor-not-allowed" : "bg-[#00D390]"
+              }`}
+              disabled={install}
+            >
+              {install ? "Installed" : `Install Now (${size} MB)`}
             </button>
           </div>
         </div>
       </div>
       <Ratings ratings={ratings}></Ratings>
+      <Description description={description}></Description>
     </div>
   );
 };

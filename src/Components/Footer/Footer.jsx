@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer sm:footer-horizontal bg-white text-[#001931] p-10 mt-48 ">
+    <div className="w-full mx-auto">
+      <footer className="footer sm:footer-horizontal bg-white text-[#001931] p-10 mt-48  ">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
