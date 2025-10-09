@@ -9,11 +9,11 @@ const Home = () => {
 
   return (
     <div className="bg-[#F5F5F5] ">
-      <div className="bg-[#F5F5F5] w-3/4 mx-auto ">
+      <div className="bg-[#F5F5F5] w-full mx-auto ">
         <Banner></Banner>
         <UserReview></UserReview>
         <HomeCards appData={appData}></HomeCards>
-        <div className="text-center">
+        <div className="text-center pb-24">
           <Link to="/apps">
             <button className="btn  text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2]">
               Show All

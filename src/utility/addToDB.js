@@ -14,7 +14,6 @@ const addToInstalledDB = (id) => {
 
   if (installAppData.includes(id)) {
     console.log("hello");
-    alert("bhai ei id already exist ");
   } else {
     installAppData.push(id);
     const data = JSON.stringify(installAppData);

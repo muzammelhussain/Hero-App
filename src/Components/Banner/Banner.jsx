@@ -4,7 +4,7 @@ import AppStore from "../../assets/img/Group.png";
 const Banner = () => {
   return (
     <div className="pt-20">
-      <div className="w-full md:w-[597px] mx-auto">
+      <div className="w-11/12 md:w-[597px] mx-auto">
         <h1 className="text-[64px] text-center text-[#001931] font-bold">
           We Build{" "}
           <span className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">

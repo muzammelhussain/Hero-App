@@ -42,7 +42,7 @@ const AppsCards = ({ appsData }) => {
       </div>
 
       {appsLength > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-5 pb-24">
           {searchedApps.map((appData) => (
             <AppsCard appData={appData} key={appData.id}></AppsCard>
           ))}

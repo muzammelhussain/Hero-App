@@ -4,25 +4,21 @@ import Rating from "../../assets/img/icon-ratings.png";
 import { Link } from "react-router";
 
 const HomeCard = ({ appData }) => {
-  const { id, image, downloads, ratingAvg } = appData;
+  const { id, image, downloads, ratingAvg, title } = appData;
 
   return (
     <Link to={`/appsDetails/${id}`}>
       <div>
-        <div className="card bg-base-100 w-72 shadow-sm flex flex-col justify-between hover:shadow-md transition-all hover:scale-105">
+        <div className="card bg-white w-72 shadow-sm flex flex-col justify-between hover:shadow-md transition-all hover:scale-105">
           <figure className="px-5 pt-5 flex justify-center">
             <img
               src={image}
               alt="Shoes"
-              className="rounded-xl object-cover w-full h-[250px]"
+              className="rounded-xl object-cover w-[250px] h-[250px]"
             />
           </figure>
           <div className="card-body items-center ">
-            <h2 className="card-title">Card Title</h2>
-            <p>
-              A card component has a figure, a body part, and inside body there
-              are title and actions parts
-            </p>
+            <h2 className="card-title text-[#001931] ">{title}</h2>
           </div>
           <div className="flex justify-between mx-4 mb-3">
             <div className="text-[#00D390] bg-[#F1F5E8] py-1 px-1.5 flex rounded-lg gap-2">

@@ -10,12 +10,10 @@ import {
 } from "recharts";
 
 const Ratings = ({ ratings }) => {
-  console.log(ratings);
-
   const data = ratings.map((r) => ({ name: r.name, count: r.count }));
   const reverseData = data.reverse();
   return (
-    <div className="w-full h-[300px] mx-4 my-20">
+    <div className="w-full h-[300px]  my-20">
       <h1 className="text-2xl font-bold text-[#001931]">Ratings</h1>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart

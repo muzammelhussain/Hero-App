@@ -29,7 +29,7 @@ const AppsDetails = () => {
   const appId = parseInt(id);
   const data = useLoaderData();
   const singleData = data.find((app) => app.id === appId);
-  console.log(singleData);
+
   const {
     companyName,
     image,
@@ -44,54 +44,58 @@ const AppsDetails = () => {
   } = singleData;
 
   return (
-    <div className="w-full mx-auto">
-      <div className="flex flex-col md:flex-row gap-5 ml-5 border-b-2 border-b-gray-200 w-full mx-auto">
-        <div className="mt-5 mb-4 ">
-          <img className="h-[250px] w-[250px]" src={image} alt="" />
-        </div>
-        <div>
-          <div className="border-b-2 border-b-gray-200 flex flex-col w-full">
-            <h1 className="mt-4 text-2xl font-bold text-[#001931]">{title}</h1>
-            <p className="text-[#627382] my-4">Developed by: {companyName}</p>
+    <div className="bg-white">
+      <div className="w-11/12 mx-auto bg-white">
+        <div className="flex flex-col md:flex-row gap-5  border-b-2 border-b-gray-200 ">
+          <div className="mt-5 mb-4 ">
+            <img className="h-[250px] w-[250px]" src={image} alt="" />
           </div>
           <div>
-            <div className="flex flex-col md:flex-row mt-5 ">
-              <div>
-                <img className="w-5 h-5 " src={Download} alt="" />
-                <p className="my-2">Downloads</p>
-                <h1 className="text-2xl font-bold text-[#001931]">
-                  {downloads}
-                </h1>
-              </div>
-              <div className="my-5 md:mx-10 ">
-                <img className="w-5 h-5 " src={Rating} alt="" />
-                <p className="my-2">Average Ratings</p>
-                <h1 className=" text-2xl font-bold text-[#001931]">
-                  {ratingAvg}
-                </h1>
-              </div>
-              <div>
-                <img className="w-5 h-5 " src={Review} alt="" />
-                <p className="my-2">Total Reviews</p>
-                <h1 className=" text-2xl font-bold text-[#001931]">
-                  {reviews}
-                </h1>
-              </div>
+            <div className="border-b-2 border-b-gray-200 flex flex-col w-full">
+              <h1 className="mt-4 text-2xl font-bold text-[#001931]">
+                {title}
+              </h1>
+              <p className="text-[#627382] my-4">Developed by: {companyName}</p>
             </div>
-            <button
-              onClick={installHandler}
-              className={`btn mt-3 text-white ${
-                install ? "bg-gray-400 cursor-not-allowed" : "bg-[#00D390]"
-              }`}
-              disabled={install}
-            >
-              {install ? "Installed" : `Install Now (${size} MB)`}
-            </button>
+            <div>
+              <div className="flex flex-col md:flex-row mt-5 ">
+                <div>
+                  <img className="w-5 h-5 " src={Download} alt="" />
+                  <p className="my-2">Downloads</p>
+                  <h1 className="text-2xl font-bold text-[#001931]">
+                    {downloads}
+                  </h1>
+                </div>
+                <div className="my-5 md:mx-10 ">
+                  <img className="w-5 h-5 " src={Rating} alt="" />
+                  <p className="my-2">Average Ratings</p>
+                  <h1 className=" text-2xl font-bold text-[#001931]">
+                    {ratingAvg}
+                  </h1>
+                </div>
+                <div>
+                  <img className="w-5 h-5 " src={Review} alt="" />
+                  <p className="my-2">Total Reviews</p>
+                  <h1 className=" text-2xl font-bold text-[#001931]">
+                    {reviews}
+                  </h1>
+                </div>
+              </div>
+              <button
+                onClick={installHandler}
+                className={`btn mt-3 text-white ${
+                  install ? "bg-red-400 cursor-not-allowed" : "bg-[#00D390]"
+                }`}
+                disabled={install}
+              >
+                {install ? "Installed" : `Install Now (${size} MB)`}
+              </button>
+            </div>
           </div>
         </div>
+        <Ratings ratings={ratings}></Ratings>
+        <Description description={description}></Description>
       </div>
-      <Ratings ratings={ratings}></Ratings>
-      <Description description={description}></Description>
     </div>
   );
 };
