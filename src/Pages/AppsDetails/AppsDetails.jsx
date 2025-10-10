@@ -57,9 +57,13 @@ const AppsDetails = () => {
   return (
     <div className="bg-white">
       <div className="w-11/12 mx-auto bg-white">
-        <div className="flex flex-col md:flex-row gap-5  border-b-2 border-b-gray-200 ">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-5  border-b-2 border-b-gray-200 ">
           <div className="mt-5 mb-4 ">
-            <img className="h-[250px] w-[250px]" src={image} alt="" />
+            <img
+              className="h-[200px] md:h-[250px] w-[200px] md:w-[250px]"
+              src={image}
+              alt=""
+            />
           </div>
           <div>
             <div className="border-b-2 border-b-gray-200 flex flex-col w-full">
@@ -69,25 +73,25 @@ const AppsDetails = () => {
               <p className="text-[#627382] my-4">Developed by: {companyName}</p>
             </div>
             <div>
-              <div className="flex flex-col md:flex-row mt-5 ">
+              <div className="flex flex-col md:flex-row mt-2 ">
                 <div>
                   <img className="w-5 h-5 " src={Download} alt="" />
-                  <p className="my-2">Downloads</p>
-                  <h1 className="text-2xl font-bold text-[#001931]">
+                  <p className="text-black">Downloads</p>
+                  <h1 className="text-lg md:text-2xl font-bold text-[#001931]">
                     {downloads}
                   </h1>
                 </div>
                 <div className="my-5 md:mx-10 ">
                   <img className="w-5 h-5 " src={Rating} alt="" />
-                  <p className="my-2">Average Ratings</p>
-                  <h1 className=" text-2xl font-bold text-[#001931]">
+                  <p className="text-black">Average Ratings</p>
+                  <h1 className=" text-lg md:text-2xl font-bold text-[#001931]">
                     {ratingAvg}
                   </h1>
                 </div>
                 <div>
                   <img className="w-5 h-5 " src={Review} alt="" />
-                  <p className="my-2">Total Reviews</p>
-                  <h1 className=" text-2xl font-bold text-[#001931]">
+                  <p className="text-black">Total Reviews</p>
+                  <h1 className=" text-lg md:text-2xl font-bold text-[#001931]">
                     {reviews}
                   </h1>
                 </div>
@@ -98,6 +102,7 @@ const AppsDetails = () => {
                   install ? "bg-red-600 " : "bg-[#00D390]"
                 }`}
                 // disabled={install}
+                // I tried0 to make it disabled but when i use disabled the UI show the button. Instead of this I add toast and made bg red.
               >
                 {install ? "Installed" : `Install Now (${size} MB)`}
               </button>
@@ -106,7 +111,7 @@ const AppsDetails = () => {
         </div>
         <Ratings ratings={ratings}></Ratings>
         <Description description={description}></Description>
-        // I tried to adding more word in description, but i couldn't do.
+        {/* I tried to adding more word in description, but i couldn't add the data in json file after fetching data. */}
       </div>
     </div>
   );

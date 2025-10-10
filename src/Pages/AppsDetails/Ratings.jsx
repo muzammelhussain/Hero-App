@@ -26,7 +26,7 @@ const Ratings = ({ ratings }) => {
             bottom: 10,
           }}
         >
-          <YAxis dataKey="name" type="category" />
+          <YAxis type="category" />
           <XAxis type="number" />
           <Tooltip />
           <Legend />

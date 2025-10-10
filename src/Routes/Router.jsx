@@ -34,11 +34,11 @@ export const router = createBrowserRouter([
         loader: () => fetch("/appData.json"),
         Component: AppsDetails,
       },
-
-      {
-        path: "*",
-        Component: ErrorPage2,
-      },
     ],
+  },
+
+  {
+    path: "*",
+    Component: ErrorPage,
   },
 ]);
