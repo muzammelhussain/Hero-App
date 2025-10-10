@@ -32,13 +32,17 @@ const Installation = () => {
     setSort(type);
 
     if (type === "Low") {
-      const sortedByHigh = [...installedData].sort((a, b) => a.size - b.size);
+      const sortedByHigh = [...installedData].sort(
+        (a, b) => a.downloads - b.downloads
+      );
       setInstalledData(sortedByHigh);
       console.log(sortedByHigh);
     }
 
     if (type === "High") {
-      const sortedByHigh = [...installedData].sort((a, b) => b.size - a.size);
+      const sortedByHigh = [...installedData].sort(
+        (a, b) => b.downloads - a.downloads
+      );
       setInstalledData(sortedByHigh);
       console.log(sortedByHigh);
     }
