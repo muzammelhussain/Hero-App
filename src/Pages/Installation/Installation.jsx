@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import { getInstallApp } from "../../utility/addToDB";
 import InstalledCard from "./InstalledCard";
+import UseLoader from "../../Components/UseLoader/UseLoader";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Installation = () => {
   const data = useLoaderData() || [];
   const installAppsData = getInstallApp() || [];
   const convertedInstallAppsData = installAppsData.map((id) => parseInt(id));
-  const installedData = data.filter((app) =>
-    convertedInstallAppsData.includes(app.id)
+
+  const [installedData, setInstalledData] = useState(
+    data.filter((app) => convertedInstallAppsData.includes(app.id))
   );
+
   const installedDataLength = installedData.length;
+
+  const onUninstall = (id) => {
+    const updated = installedData.filter((app) => app.id !== parseInt(id));
+    setInstalledData(updated);
+  };
+
+  const loading = UseLoader(2000);
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <div className="bg-[#F5F5F5]">
@@ -42,7 +57,11 @@ const Installation = () => {
         </div>
         <div className=" flex flex-col gap-5 my-16">
           {installedData.map((data) => (
-            <InstalledCard data={data}></InstalledCard>
+            <InstalledCard
+              key={data.id}
+              data={data}
+              onUninstall={onUninstall}
+            ></InstalledCard>
           ))}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Download from "../../assets/img/icon-downloads.png";
 import Rating from "../../assets/img/icon-ratings.png";
@@ -7,28 +7,33 @@ import Ratings from "./Ratings";
 import Description from "./Description";
 import { toast } from "react-toastify";
 import { addToInstalledDB, getInstallApp } from "../../utility/addToDB";
+import UseLoader from "../../Components/UseLoader/UseLoader";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const AppsDetails = () => {
+  const { id } = useParams();
+  const appId = parseInt(id);
+  const data = useLoaderData();
+  const singleData = data.find((app) => app.id === appId);
+
   const [install, setInstall] = useState(false);
 
+  useEffect(() => {
+    const installed = getInstallApp(); // returns array of installed IDs
+    if (installed.includes(id)) {
+      setInstall(true);
+    }
+  }, [id]);
+
   const installHandler = () => {
-    setInstall(true);
-    addToInstalledDB(id);
     if (!install) {
       setInstall(true);
+      addToInstalledDB(id);
       toast.success("✅ App Installed Successfully!");
     } else {
       toast.info("App is already installed.");
     }
   };
-
-  const localData = getInstallApp();
-  console.log(localData);
-
-  const { id } = useParams();
-  const appId = parseInt(id);
-  const data = useLoaderData();
-  const singleData = data.find((app) => app.id === appId);
 
   const {
     companyName,
@@ -42,6 +47,12 @@ const AppsDetails = () => {
 
     description,
   } = singleData;
+
+  const loading = UseLoader(2000);
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <div className="bg-white">
@@ -84,9 +95,9 @@ const AppsDetails = () => {
               <button
                 onClick={installHandler}
                 className={`btn mt-3 text-white ${
-                  install ? "bg-red-400 cursor-not-allowed" : "bg-[#00D390]"
+                  install ? "bg-red-600 " : "bg-[#00D390]"
                 }`}
-                disabled={install}
+                // disabled={install}
               >
                 {install ? "Installed" : `Install Now (${size} MB)`}
               </button>
@@ -95,6 +106,7 @@ const AppsDetails = () => {
         </div>
         <Ratings ratings={ratings}></Ratings>
         <Description description={description}></Description>
+        // I tried to adding more word in description, but i couldn't do.
       </div>
     </div>
   );

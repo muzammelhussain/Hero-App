@@ -3,9 +3,17 @@ import Banner from "../../Components/Banner/Banner";
 import UserReview from "../../Components/Banner/UserReview";
 import { Link, useLoaderData } from "react-router";
 import HomeCards from "./HomeCards";
+import UseLoader from "../../Components/UseLoader/UseLoader";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Home = () => {
   const appData = useLoaderData();
+
+  const loading = UseLoader(2000);
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <div className="bg-[#F5F5F5] ">

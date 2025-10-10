@@ -16,7 +16,7 @@ const AppsCards = ({ appsData }) => {
   return (
     <div className="">
       <div className="text-center py-16">
-        <h1 className="text-5xl font-bold text-[#001931]">
+        <h1 className="text-5xl  font-bold text-[#001931]">
           Our All Applications
         </h1>
         <p className="text-[#627382] my-4">
@@ -30,12 +30,13 @@ const AppsCards = ({ appsData }) => {
           </h1>
         </div>
         <div>
-          <label className="input">
+          <label className="input bg-white ">
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               type="search"
               placeholder="Search Apps"
+              className="text-black"
             />
           </label>
         </div>

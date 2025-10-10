@@ -21,4 +21,14 @@ const addToInstalledDB = (id) => {
   }
 };
 
-export { addToInstalledDB, getInstallApp };
+const removeFromInstalledDB = (id) => {
+  const numericId = id.toString();
+  const stored = getInstallApp();
+  // const stored2 = parseInt(stored);
+  const updated = stored.filter((item) => item !== numericId);
+  localStorage.setItem("installList", JSON.stringify(updated));
+  console.log("🗑️ Removed ID:", numericId);
+  console.log("✅ Updated LocalStorage:", updated);
+};
+
+export { addToInstalledDB, getInstallApp, removeFromInstalledDB };

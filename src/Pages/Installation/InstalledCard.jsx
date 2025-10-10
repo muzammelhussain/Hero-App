@@ -1,7 +1,16 @@
 import React from "react";
+import { removeFromInstalledDB } from "../../utility/addToDB";
+import { toast } from "react-toastify";
 
-const InstalledCard = ({ data }) => {
-  const { image, title, size, reviews, downloads, ratingAvg } = data;
+const InstalledCard = ({ data, onUninstall }) => {
+  const { image, title, size, reviews, downloads, ratingAvg, id } = data;
+
+  const handleUninstall = () => {
+    removeFromInstalledDB(id);
+    onUninstall(id);
+    toast.success("✅ App uninstalled Successfully!");
+  };
+
   return (
     <div>
       <div className=" w-full bg-white  rounded-2xl">
@@ -31,7 +40,9 @@ const InstalledCard = ({ data }) => {
             </div>
           </div>
           <div>
-            <button className="btn bg-[#00D390] mr-6">Uninstall</button>
+            <button onClick={handleUninstall} className="btn bg-[#00D390] mr-6">
+              Uninstall
+            </button>
           </div>
         </div>
       </div>
