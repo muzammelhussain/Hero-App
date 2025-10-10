@@ -6,6 +6,7 @@ import UseLoader from "../../Components/UseLoader/UseLoader";
 import Spinner from "../../Components/Spinner/Spinner";
 
 const Installation = () => {
+  const [sort, setSort] = useState("");
   const data = useLoaderData() || [];
   const installAppsData = getInstallApp() || [];
   const convertedInstallAppsData = installAppsData.map((id) => parseInt(id));
@@ -27,6 +28,22 @@ const Installation = () => {
     return <Spinner></Spinner>;
   }
 
+  const handleSort = (type) => {
+    setSort(type);
+
+    if (type === "Low") {
+      const sortedByHigh = [...installedData].sort((a, b) => a.size - b.size);
+      setInstalledData(sortedByHigh);
+      console.log(sortedByHigh);
+    }
+
+    if (type === "High") {
+      const sortedByHigh = [...installedData].sort((a, b) => b.size - a.size);
+      setInstalledData(sortedByHigh);
+      console.log(sortedByHigh);
+    }
+  };
+
   return (
     <div className="bg-[#F5F5F5]">
       <div className="w-11/12 mx-auto pb-16">
@@ -45,14 +62,26 @@ const Installation = () => {
             </h1>
           </div>
           <div>
-            <label className="input">
-              <input
-                // value={search}
-                // onChange={(e) => setSearch(e.target.value)}
-                type="search"
-                placeholder="Search Apps"
-              />
-            </label>
+            <div className="dropdown">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn m-1  bg-white text-black"
+              >
+                Sort by : {sort ? sort : ""}
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-white text-black rounded-box z-1 w-52 p-2 shadow-sm"
+              >
+                <li>
+                  <a onClick={() => handleSort("High")}>High - Low</a>
+                </li>
+                <li>
+                  <a onClick={() => handleSort("Low")}>Low - High</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className=" flex flex-col gap-5 my-16">

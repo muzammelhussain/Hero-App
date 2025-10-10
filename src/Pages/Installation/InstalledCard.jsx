@@ -25,7 +25,7 @@ const InstalledCard = ({ data, onUninstall }) => {
             <div className="flex flex-col justify-center">
               <h1 className="text-lg font-semibold text-[#001931]">{title}</h1>
 
-              <div className="flex gap-6 text-sm text-[#627382] mt-1">
+              <div className="flex flex-col md:flex-row gap-6 text-sm text-[#627382] mt-1">
                 <div className="flex items-center gap-1">
                   <span>⬇</span>
                   <span>{downloads.toLocaleString()}</span>
