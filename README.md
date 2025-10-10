@@ -3,7 +3,7 @@ Description: A modern, responsive UI showcasing a digital storefront for mobile 
 
 Technologies:
 Frontend: React (with functional components and Hooks)
-Routing: React Router DOM (or Next.js/similar for production setup)
+Routing: React Router DOM
 Styling: CSS Modules, Tailwind CSS, or Styled-Components (for modern development)
 Charting: Recharts
 State Management: React Context API or simple useState (depending on complexity)

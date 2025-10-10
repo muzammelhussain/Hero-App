@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppsCard from "./AppsCard";
 import ErrorPage2 from "../Error/ErrorPage2";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const AppsCards = ({ appsData }) => {
   const appsData1 = appsData;
 
   const [search, setSearch] = useState("");
-  const term = search.trim().toLocaleLowerCase();
+
+  const [term, setTerm] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (search.trim() === "") {
+      setTerm("");
+      return;
+    }
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setTerm(search.trim().toLocaleLowerCase());
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const searchedApps = term
     ? appsData1.filter((app) => app.title.toLocaleLowerCase().includes(term))
     : appsData1;
-  console.log(searchedApps);
+
   const appsLength = searchedApps.length;
   return (
     <div className="">
@@ -42,7 +58,9 @@ const AppsCards = ({ appsData }) => {
         </div>
       </div>
 
-      {appsLength > 0 ? (
+      {loading ? (
+        <Spinner></Spinner>
+      ) : appsLength > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-5 pb-24">
           {searchedApps.map((appData) => (
             <AppsCard appData={appData} key={appData.id}></AppsCard>

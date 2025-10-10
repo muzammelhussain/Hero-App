@@ -73,7 +73,7 @@ const AppsDetails = () => {
               <p className="text-[#627382] my-4">Developed by: {companyName}</p>
             </div>
             <div>
-              <div className="flex flex-col md:flex-row mt-2 ">
+              <div className="flex flex-col md:flex-row mt-2 gap-5">
                 <div>
                   <img className="w-5 h-5 " src={Download} alt="" />
                   <p className="text-black">Downloads</p>
@@ -81,7 +81,7 @@ const AppsDetails = () => {
                     {downloads}
                   </h1>
                 </div>
-                <div className="my-5 md:mx-10 ">
+                <div className=" ">
                   <img className="w-5 h-5 " src={Rating} alt="" />
                   <p className="text-black">Average Ratings</p>
                   <h1 className=" text-lg md:text-2xl font-bold text-[#001931]">
@@ -98,11 +98,10 @@ const AppsDetails = () => {
               </div>
               <button
                 onClick={installHandler}
-                className={`btn mt-3 text-white ${
-                  install ? "bg-red-600 " : "bg-[#00D390]"
+                className={`btn mt-5 text-black border-gray-200 ${
+                  install ? "bg-base-200 " : "bg-[#00D390]"
                 }`}
-                // disabled={install}
-                // I tried0 to make it disabled but when i use disabled the UI show the button. Instead of this I add toast and made bg red.
+                disabled={install}
               >
                 {install ? "Installed" : `Install Now (${size} MB)`}
               </button>

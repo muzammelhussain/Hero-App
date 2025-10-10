@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-    <div className="text-center bg-white ">
+    <div className="text-center bg-white h-svh">
       <img className="max-[500px] mx-auto my-6" src={NotFound} alt="" />
       <h1 className="text-3xl font-bold text-[#001931]">
         Oops, page not found!
